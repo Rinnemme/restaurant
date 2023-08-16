@@ -72,6 +72,10 @@ body {
     width:30px;
 }
 
+#logo:hover {
+    cursor:pointer;
+}
+
 #header>button {
     background-color:transparent;
     border-bottom:none;
