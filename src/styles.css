@@ -16,11 +16,11 @@
 
 :root {
     --blue: rgb(0,114,181);
-    --blue-semiopaque: rgba(0,114,181,0.5);
+    --blue-semiopaque: rgba(0,114,181,0.7);
     --green: rgb(64, 159, 91);
-    --green-semiopaque: rgba(64, 159, 91,0.5);
+    --green-semiopaque: rgba(64, 159, 91,0.7);
     --amaranth: rgb(182,23,75);
-    --amaranth-semiopaque: rgba(182,23,75,0.5);
+    --amaranth-semiopaque: rgba(182,23,75,0.7);
     --black: rgb(50,50,50);
 }
 
@@ -136,19 +136,19 @@ body {
 }
 
 .blue-br {
-    background-color:var(--blue);
+    background-color:var(--blue-semiopaque);
 }
 
 .green-br {
-    background-color:var(--green);
+    background-color:var(--green-semiopaque);
 }
 
 .amaranth-br {
-    background-color:var(--amaranth);
+    background-color:var(--amaranth-semiopaque);
 }
 
 .black-br {
-    background-color:var(--black);
+    background-color:var(--black-semiopaque);
 }
 
 .info-main {
@@ -157,7 +157,7 @@ body {
     display:grid;
     gap:30px;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    grid-auto-rows: 100%;
+    grid-auto-rows: auto;
 }
 
 .info-main>.info-image {

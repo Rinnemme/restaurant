@@ -1,8 +1,8 @@
-import {content} from './index.js'
 import chickenWaffle from './chicken-waffle.jpeg'
 import fettuccineAlfredo from './fettuccine-alfredo.jpeg'
 import grilledCheese from './grilled-cheese.jpeg'
 import meatballSub from './meatball-sub.jpeg'
+export {loadMenuContent}
 
 const menu = [
     {
@@ -39,3 +39,48 @@ const menu = [
         photo: meatballSub
     },
 ]
+
+function loadMenuContent() {
+    const pageContent = document.getElementById("page-content")
+    pageContent.innerHTML = ""
+    const titleCard = document.createElement("div")
+    titleCard.setAttribute("id","title-card")
+    titleCard.textContent = "Menu"
+    titleCard.style.background = `linear-gradient(var(--green-semiopaque),var(--green)), url('https://www.thesun.co.uk/wp-content/uploads/2023/06/GettyImages-1363931406.jpg')`
+    titleCard.style.backgroundSize = "cover"
+    pageContent.appendChild(titleCard)
+
+    const locationsInfo = document.createElement("div")
+    locationsInfo.classList.add("info-block")
+    const locationsInfoText = document.createElement("div")
+    locationsInfoText.classList.add("info-main")
+    locationsInfoText.innerHTML = `As mentioned on our home page, we typically serve dishes 
+    at each location based upon the dishes with which each location's chefs are already 
+    intimately familiar, to maximize their authenticity. However, for the sake of some 
+    consistency, we do serve a handful of staples - dishes which are the bastard children 
+    of the culinary world, whose origins are unknown or, by this juncture, virtually 
+    irrelevant. Prices vary by location.`
+    locationsInfo.appendChild(locationsInfoText)
+    pageContent.appendChild(locationsInfo)
+
+    menu.forEach(dish => {
+        const dishBlock = document.createElement("div")
+        dishBlock.classList.add("info-block")
+        const dishHeader = document.createElement("div")
+        dishHeader.classList.add("info-header")
+        dishHeader.classList.add("green-br")
+        dishHeader.textContent = `${dish.name}`
+        const dishDescription = document.createElement("div")
+        dishDescription.classList.add("info-main")
+        const locationInfo = document.createElement("div")
+        locationInfo.innerHTML = `${dish.description}`
+        const locationPhoto = document.createElement("img")
+        locationPhoto.classList.add("info-image")
+        locationPhoto.src = dish.photo
+        dishDescription.appendChild(locationInfo)
+        dishDescription.appendChild(locationPhoto)
+        dishBlock.appendChild(dishHeader)
+        dishBlock.appendChild(dishDescription)
+        pageContent.appendChild(dishBlock)
+    })
+}

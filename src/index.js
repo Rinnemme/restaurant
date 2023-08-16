@@ -2,6 +2,7 @@ import Logo from './earth.png'
 window.onload = initialLoad()
 import './styles.css';
 import {loadLocationContent} from './locations.js';
+import {loadMenuContent} from './menu.js'
 
 function initialLoad() {
     loadHeader()
@@ -22,6 +23,7 @@ function loadHeader() {
     const menuButton = document.createElement("button")
     menuButton.setAttribute("id","menu-button")
     menuButton.textContent = "Menu"
+    menuButton.onclick = function() {loadMenuContent()}
     const locationsButton = document.createElement("button")
     locationsButton.setAttribute("id","locations-button")
     locationsButton.textContent = "Locations"
