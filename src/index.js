@@ -39,14 +39,15 @@ function loadHomeContent() {
     const titleCard = document.createElement("div")
     titleCard.setAttribute("id","title-card")
     titleCard.textContent = "Nomnivore"
-    titleCard.style.background = "linear-gradient(rgba(0, 115, 181, 0.39),rgb(0,114,181)), url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg')"
+    // titleCard.style.background = "linear-gradient(rgba(0, 115, 181, 0.39),rgb(0,115,181)), url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg')"
+    titleCard.style.background = `linear-gradient(var(--blue-semiopaque),var(--blue)), url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg')`
     pageContent.appendChild(titleCard)
 
     const restaurantInfo = document.createElement("div")
     restaurantInfo.classList.add("info-block")
     const restaurantInfoHeader = document.createElement("div")
     restaurantInfoHeader.classList.add("info-header")
-    restaurantInfoHeader.classList.add("amaranth-br")
+    restaurantInfoHeader.classList.add("black-br")
     restaurantInfoHeader.textContent = "Earth's Favorite Foods™"
     const restaurantInfoText = document.createElement("div")
     restaurantInfoText.classList.add("info-main")
@@ -65,36 +66,6 @@ function loadHomeContent() {
     restaurantInfo.appendChild(restaurantInfoHeader)
     restaurantInfo.appendChild(restaurantInfoText)
     pageContent.appendChild(restaurantInfo)
-
-    const historyInfo = document.createElement("div")
-    historyInfo.classList.add("info-block")
-    const historyInfoHeader = document.createElement("div")
-    historyInfoHeader.classList.add("info-header")
-    historyInfoHeader.classList.add("green-br")
-    historyInfoHeader.textContent = "History"
-    const historyInfoText = document.createElement("div")
-    historyInfoText.classList.add("info-main")
-    historyInfoText.innerHTML =  `Since time immemorial, all carbon-based lifeforms have 
-    required sustenance in order to perpetuate their meager existence, the meaning of 
-    which has been contemplated with considerable vigor from the moment René Descartes 
-    discovered thinking. However, it was only relatively recently in the history of this 
-    particular galaxy's sentient life when we learned that this sustenance can be prepared 
-    in a way that not only is effective at sustaining us, but which causes the gustatory 
-    cells with which the human tongue is rife to send signals to our brain that result in 
-    a release of chemicals we have collectively decided constitute something called pleasure. 
-    <br><br>
-    
-    From here, two things happened: first, beautifully diverse methods of curating and 
-    preparing foods were developed in all corners of our Earth; and second, through a 
-    combination of imperialism and appropriation, cheap imitations of one culture's techniques 
-    began cropping up within other cultures, diminishing their differentiable qualities and 
-    consequently lowering the value that diversity in food preparation provides. Nomnivore 
-    was established in 2023 to act as an antithesis to the latter, which is to say that our
-    history is only beginning, but our mission is one most imperative to humanity's collective
-    culinary integrity.`
-    historyInfo.appendChild(historyInfoHeader)
-    historyInfo.appendChild(historyInfoText)
-    pageContent.appendChild(historyInfo)
 }
 
 //  <div id="content">
