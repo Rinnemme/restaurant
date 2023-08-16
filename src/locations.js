@@ -1,6 +1,8 @@
-import {content} from './index.js'
 import washPark from './wash-park-denver-co.png'
 import prospectPark from './prospect-park.png'
+import missionTrails from './mission-trails-regional-park.png'
+import hollingerPark from './hollinger-park.png'
+export {loadLocationContent}
 
 const locations = [
     {
@@ -28,42 +30,54 @@ const locations = [
         photo: missionTrails
     },
     {
-        name: "Washington Park (Denver)",
-        address: "701 S Franklin St, Denver, CO 80209",
-        phone: "(393) 123-4567",
+        name: "Hollinger Park (Ontario)",
+        address: "565 Algonquin Blvd E, Timmins, ON P4N 1B7, Canada",
+        phone: "+1 705-264-1275",
         weekhours: "Mon - Fri 8:00 - 20:00",
         weekendhours: "Sat & Sun 08:00 - 14:00",
-        photo: washPark
+        photo: hollingerPark
     }
 ]
 
-/* <div id="content">
-        <div id="header">
-            <img id="logo" src="../src/earth.png">
-            <button id="home-button">Home</button>
-            <button id="menu-button">Menu</button>
-            <button id="locations-button">Locations</button>
-        </div>
-        <div id="page-content">
-            <div id="title-card">
-                Nomnivore
-            </div>
-            <div class="info-block">
-                <div class="info-header black-br">Header Time</div>
-                <div class="info-main">Here's some text</div>
-            </div>
-            <div class="info-block">
-                <div class="info-header black-br">Header Time</div>
-                <div class="info-main">
-                    <div class="info-text">
-                        Let's just write some info at a bit more length about 
-                        a prospective dish. This dish is probably prepared by some sort of chef
-                        who has some manner of expertise from some specific location, a location
-                        from whence they hail. Having that expertise, this chef crafts said dish
-                        in order to benefit the customer's taste buds, and so on and so forth"
-                    </div>
-                    <img class="info-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Chicken_and_waffles_with_peaches_and_cream.jpg/800px-Chicken_and_waffles_with_peaches_and_cream.jpg">
-                </div>
-            </div>
-        </div>
-    </div> */
+function loadLocationContent() {
+    const pageContent = document.getElementById("page-content")
+    pageContent.innerHTML = ""
+    const titleCard = document.createElement("div")
+    titleCard.setAttribute("id","title-card")
+    titleCard.textContent = "Locations"
+    titleCard.style.background = `linear-gradient(var(--amaranth-semiopaque),var(--amaranth)), url('https://previews.123rf.com/images/artphotoclub/artphotoclub1504/artphotoclub150401005/38814340-vintage-paper-with-world-map.jpg')`
+    titleCard.style.backgroundSize = "cover"
+    pageContent.appendChild(titleCard)
+
+    const locationsInfo = document.createElement("div")
+    locationsInfo.classList.add("info-block")
+    const locationsInfoText = document.createElement("div")
+    locationsInfoText.classList.add("info-main")
+    locationsInfoText.innerHTML = `All of our locations are subterranean edifices, accessible
+    via hatches located somewhere within various public parks, which we have purchased from 
+    their respective cities, and which we maintain with great care. If you need guidance toward 
+    the entrance hatch for any particular location, feel free to call that location.`
+    locationsInfo.appendChild(locationsInfoText)
+    pageContent.appendChild(locationsInfo)
+
+    locations.forEach(location => {
+        const locationBlock = document.createElement("div")
+        locationBlock.classList.add("info-block")
+        const locationHeader = document.createElement("div")
+        locationHeader.classList.add("info-header")
+        locationHeader.classList.add("amaranth-br")
+        locationHeader.textContent = `${location.name}`
+        const locationContent = document.createElement("div")
+        locationContent.classList.add("info-main")
+        const locationInfo = document.createElement("div")
+        locationInfo.innerHTML = `${location.address}<br>${location.phone}<br>${location.weekhours}<br>${location.weekendhours}`
+        const locationPhoto = document.createElement("img")
+        locationPhoto.classList.add("info-image")
+        locationPhoto.src = location.photo
+        locationContent.appendChild(locationInfo)
+        locationContent.appendChild(locationPhoto)
+        locationBlock.appendChild(locationHeader)
+        locationBlock.appendChild(locationContent)
+        pageContent.appendChild(locationBlock)
+    })
+}
