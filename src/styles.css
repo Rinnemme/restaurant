@@ -1,81 +1,96 @@
 @font-face {
+    font-display: swap;
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 400;
-    font-display: swap;
     src: url(./quicksand.woff2) format('woff2');
   }
 
   @font-face {
+    font-display: swap;
     font-family: 'Libre Baskerville';
     font-style: normal;
     font-weight: 400;
-    font-display: swap;
     src: url(./libre.woff2) format('woff2');
   }
 
 :root {
+    --amaranth: rgb(182,23,75);
+    --amaranth-semiopaque: rgba(182,23,75,0.7);
+    --black: rgb(50,50,50);
     --blue: rgb(0,114,181);
     --blue-semiopaque: rgba(0,114,181,0.7);
     --green: rgb(64, 159, 91);
     --green-semiopaque: rgba(64, 159, 91,0.7);
-    --amaranth: rgb(182,23,75);
-    --amaranth-semiopaque: rgba(182,23,75,0.7);
-    --black: rgb(50,50,50);
+}
+
+.amaranth-br {
+    background-color:var(--amaranth-semiopaque);
+}
+
+.blue-br {
+    background-color:var(--blue-semiopaque);
+}
+
+.green-br {
+    background-color:var(--green-semiopaque);
 }
 
 body {
-    margin:0;
-    display: flex;
-    color: var(--black);
-    flex-direction: column;
-    box-sizing:border-box;
-    font-family: 'Quicksand';
     background: linear-gradient(rgba(20,20,20,0.5),rgba(20,20,20,0.5)), url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
     background-attachment:fixed;
-    /* background-color:rgb(240, 240, 240); */
+    box-sizing:border-box;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand';
+    margin:0;
 }
 
 #content {
+    align-items:center;
     display: flex;
     flex-direction: column;
-    align-items:center;
 }
 
 #header {
-    width:100%;
-    height:50px;
-    margin-bottom:50px;
-    display:flex;
     align-items:center;
-    position:sticky;
-    top:0;
-    justify-content:center;
     background-color:white;
     box-shadow:0px 5px 20px rgba(0, 0, 0, 0.534);
+    display:flex;
+    height:50px;
+    justify-content:center;
+    margin-bottom:50px;
+    position:sticky;
+    top:0;
+    width:100%;
 }
 
 #logo {
-    width:30px;
-    position:absolute;
     left:10px;
+    position:absolute;
+    width:30px;
 }
 
 #header>button {
-    height:100%;
-    width: 90px;
     background-color:transparent;
-    border-left: 1px solid rgb(240, 240, 240);
-    border-top: none;
     border-bottom:none;
+    border-left: 1px solid rgb(240, 240, 240);
     border-right:none;
+    border-top: none;
     color: var(--black);
     font-family: 'Quicksand';
+    height:100%;
+    width: 90px;
+}
+
+#header>#locations-button {
+    border-right:1px solid rgb(240, 240, 240);
 }
 
 #header>button:hover {
-    cursor:pointer;
     color:white;
+    cursor:pointer;
     transition:.3s ease-in;
 }
 
@@ -96,16 +111,12 @@ body {
     background-color: var(--amaranth)
 }
 
-#header>#locations-button {
-    border-right:1px solid rgb(240, 240, 240);
-}
-
 #page-content {
-    width:clamp(350px,100%,700px);
     display:flex;
     flex-direction:column;
     gap:40px;
     margin-bottom:50px;
+    width:clamp(350px,100%,700px);
 }
 
 #page-content>div {
@@ -113,55 +124,39 @@ body {
 }
 
 #title-card {
-    width:100%;
-    height:300px;
-    font-size:3em;
-    font-family: 'Libre Baskerville';
+    align-items:center;
     color:white;
     display:flex;
-    align-items:center;
+    font-family: 'Libre Baskerville';
+    font-size:3em;
+    height:300px;
     justify-content:center;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    width:100%;
 }
 
 .info-header {
-    height:60px;
+    align-items:center;
     color:white;
     display:flex;
-    align-items:center;
+    height:60px;
     justify-content:center;
     font-family: 'Libre Baskerville';
-    font-size:1.3em;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-}
-
-.blue-br {
-    background-color:var(--blue-semiopaque);
-}
-
-.green-br {
-    background-color:var(--green-semiopaque);
-}
-
-.amaranth-br {
-    background-color:var(--amaranth-semiopaque);
-}
-
-.black-br {
-    background-color:var(--black-semiopaque);
+    font-size:1.3em;
 }
 
 .info-main {
     background-color:white;
-    padding:30px;
     display:grid;
     gap:30px;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
     grid-auto-rows: auto;
+    padding:30px;
 }
 
 .info-main>.info-image {
-    width:100%;
     height:165px;
     object-fit: cover;
+    width:100%;
 }
