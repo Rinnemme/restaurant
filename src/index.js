@@ -1,5 +1,5 @@
-import Logo from './earth.png'
 window.onload = initialLoad()
+import Logo from './earth.png'
 import './styles.css';
 import {loadLocationContent} from './locations.js';
 import {loadMenuContent} from './menu.js'
